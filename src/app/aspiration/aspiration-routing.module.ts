@@ -4,14 +4,13 @@ import { BooksComponent } from './books/books.component'
 import { NgModule } from '@angular/core'
 
 const routes: Routes = [
-  { path: 'books', component: BooksComponent },
+  { path: '', component: BooksComponent },
 ]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [
-    RouterModule,
-    BooksComponent
+    RouterModule
   ],
 })
 export class AspirationRoutingModule {}
