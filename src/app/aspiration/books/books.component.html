@@ -8,13 +8,9 @@
     (input)="autorInput($event)">
 
   <label for="autor">Gen</label>
-  <input type="text" name="gen" id="gen" [(ngModel)]="bookGen" (input)="genInput($event)">
+  <input type="text" name="gen" id="gen" [(ngModel)]="bookGenre" (input)="genInput($event)">
   <button type="submit">Submit</button>
 
 </form>
-<p>{{title | json}}</p>
-<p>{{inputTitle}}</p>
-<p>{{autor | json}}</p>
-<p>{{inputAutor}}</p>
-<p>{{gen | json}}</p>
-<p>{{bookGen}}</p>
+<app-book-list [inputTitle]="inputTitle"  [inputAutor]="inputAutor"  [bookGenre]="bookGenre" [title]="title"></app-book-list>
+<!-- <router-outlet></router-outlet> -->

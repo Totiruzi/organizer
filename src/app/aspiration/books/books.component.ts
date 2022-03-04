@@ -11,7 +11,7 @@ export class BooksComponent implements OnInit {
   gen: any = []
   inputTitle: string = ''
   inputAutor: string = ''
-  bookGen: string = ''
+  bookGenre: string = ''
 
   constructor() {}
 
@@ -21,7 +21,7 @@ export class BooksComponent implements OnInit {
     event.preventDefault()
     this.title.push(this.inputTitle)
     this.autor.push(this.inputAutor)
-    this.gen.push(this.bookGen)
+    this.gen.push(this.bookGenre)
   }
 
   titleInput(event: any) {
