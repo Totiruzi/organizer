@@ -8,9 +8,9 @@ import { SignupComponent } from './auth/signup/signup.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent }
-  // {path: 'books', loadChildren: () => import('src/app/aspiration/aspiration.module')
-  // .then(m => m.AspirationModule)},
+  { path: 'signup', component: SignupComponent },
+  { path: 'books', loadChildren: () => import('src/app/aspiration/aspiration.module')
+  .then(m => m.AspirationModule)},
 ]
 
 @NgModule({

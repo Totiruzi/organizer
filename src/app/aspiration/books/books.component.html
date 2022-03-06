@@ -13,4 +13,17 @@
 
 </form>
 <app-book-list [inputTitle]="inputTitle"  [inputAutor]="inputAutor"  [bookGenre]="bookGenre" [title]="title"></app-book-list>
-<!-- <router-outlet></router-outlet> -->
+
+<mat-tab-group>
+  <mat-tab label="Add New Book">
+    <app-new-book></app-new-book>
+  </mat-tab>
+  <mat-tab label="Current Book">
+    <app-book-list [inputTitle]="inputTitle"  [inputAutor]="inputAutor"  [bookGenre]="bookGenre" [title]="title"></app-book-list>
+  </mat-tab>
+  <mat-tab label="Read Books">
+    <app-read-books></app-read-books>
+  </mat-tab>
+</mat-tab-group>
+
+<router-outlet></router-outlet>

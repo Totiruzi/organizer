@@ -4,6 +4,12 @@
 
 .sidenav {
   width: 200px;
+
+  
+  a:hover,
+  a:active {
+    color: blueviolet;
+  }
 }
 
 .sidenav .mat-toolbar {
@@ -14,4 +20,29 @@
   position: sticky;
   top: 0;
   z-index: 1;
+
+  span{
+    flex: 1 auto;
+  }
+   a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:active {
+    color: aquamarine;
+  }
 }
+
+.link-name{
+  color: inherit;
+  display: inline-block;
+  margin-left: 10px;
+  
+}
+
+// button, logout {
+//   background: inherit;
+//   border: none;
+// }
