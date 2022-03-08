@@ -1,4 +1,4 @@
-<form (submit)="onSubmit($event)">
+<!-- <form (submit)="onSubmit($event)">
   <label for="title">Title</label>
   <input type="text" name="title" id="title" [(ngModel)]="inputTitle"
     (input)="titleInput($event)">
@@ -12,18 +12,20 @@
   <button type="submit">Submit</button>
 
 </form>
-<app-book-list [inputTitle]="inputTitle"  [inputAutor]="inputAutor"  [bookGenre]="bookGenre" [title]="title"></app-book-list>
+<app-book-list [inputTitle]="inputTitle"  [inputAutor]="inputAutor"  [bookGenre]="bookGenre" [title]="title"></app-book-list> -->
 
-<mat-tab-group>
+<mat-tab-group *ngIf="!currentBook">
   <mat-tab label="Add New Book">
-    <app-new-book></app-new-book>
+    <app-new-book (genreValue)="currentBook=true"></app-new-book>
   </mat-tab>
   <mat-tab label="Current Book">
-    <app-book-list [inputTitle]="inputTitle"  [inputAutor]="inputAutor"  [bookGenre]="bookGenre" [title]="title"></app-book-list>
+    <app-book-list></app-book-list>
   </mat-tab>
   <mat-tab label="Read Books">
     <app-read-books></app-read-books>
   </mat-tab>
 </mat-tab-group>
 
-<router-outlet></router-outlet>
+<app-current-book *ngIf="currentBook" (exitReading)="currentBook=false"></app-current-book>
+
+<!-- <router-outlet></router-outlet> -->

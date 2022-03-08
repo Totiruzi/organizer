@@ -1,1 +1,6 @@
-<p>current-book works!</p>
+<section class="current-book" fxLayout="column" fxLayoutAlign="center center">
+  <mat-progress-spinner [value]="currentProgress"></mat-progress-spinner>
+  <h1>{{currentProgress}}</h1>
+  <p> As you change your self with education, you change the world</p>
+  <button mat-raised-button color="warn" (click)="stopReading()">Stop!</button>
+</section>
