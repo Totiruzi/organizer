@@ -1,10 +1,11 @@
 <section class="new-book" fxLayout fxLayoutAlign="center">
+  <form ((ngSubmit)="onBookPick(newBook)"  #newBook="ngForm")></form>
   <mat-card fxFlex.xs="100%" fxFlex="500px">
     <mat-card-title fxLayoutAlign="center"> Time for a new read</mat-card-title>
     <mat-card-content fxLayoutAlign="center">
       <mat-form-field>
         <mat-label>Book Title</mat-label>
-        <mat-select>
+        <mat-select ngModel nam="book" required>
           <mat-option *ngFor="let book of avalableBooks" [value]="book.id">
             {{book.title}}
           </mat-option>
@@ -12,7 +13,7 @@
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions fxLayoutAlign="center">
-      <button mat-raised-button color="primary" (click)="onGenrePick()">
+      <button mat-raised-button color="primary" [disabled]="newBook.invalid">
         Read
       </button>
     </mat-card-actions>

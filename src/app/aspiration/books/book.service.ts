@@ -57,7 +57,7 @@ export class BookService {
     },
   ]
 
-  private currentBook: IBook | undefined;
+  private currentBook:any;
 
   getAvailableBooks(): IBook[] {
     return this.avalableBooks;
@@ -65,7 +65,7 @@ export class BookService {
 
   startReading(selectedBookId: string) {
     this.currentBook = this.avalableBooks.find(book => book.id === selectedBookId);
-    // this.choosenBook.next({ ...this.currentBook });
+    this.choosenBook.next({ ...this.currentBook });
   }
 
 }

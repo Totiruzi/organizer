@@ -1,3 +1,4 @@
+import { NgForm } from '@angular/forms';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { IBook } from '../book.module';
 import { BookService } from '../book.service';
@@ -19,8 +20,8 @@ export class NewBookComponent implements OnInit {
     this.avalableBooks = this.bookService.getAvailableBooks();
   }
 
-  onGenrePick() {
+  onBookPick(form: NgForm) {
     console.log('Submitted');
-    this.genreValue.emit();
+    this.bookService.startReading(form.value.book);
   }
 }
