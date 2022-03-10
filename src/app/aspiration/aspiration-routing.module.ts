@@ -5,11 +5,12 @@ import { BooksComponent } from 'src/app/aspiration/books/books.component';
 import { BookListComponent } from 'src/app/aspiration/books/book-list/book-list.component';
 import { CurrentBookComponent } from 'src/app/aspiration/books/current-book/current-book.component';
 import { NewBookComponent } from 'src/app/aspiration/books/new-book/new-book.component';
+import { AuthGuard } from '../auth/auth.gaurd';
 
 const routes: Routes = [
   { path: '', component: BooksComponent },
   { path: 'bookList', component: BookListComponent },
-  { path: 'currentBook', component: CurrentBookComponent },
+  { path: 'currentBook', component: CurrentBookComponent, canActivate: [AuthGuard] },
   { path: 'book', component: NewBookComponent}
 ]
 
@@ -18,5 +19,6 @@ const routes: Routes = [
   exports: [
     RouterModule
   ],
+  providers: [AuthGuard]
 })
 export class AspirationRoutingModule {}

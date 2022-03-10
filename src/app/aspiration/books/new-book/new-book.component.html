@@ -3,10 +3,10 @@
     <mat-card-title fxLayoutAlign="center"> Time for a new read</mat-card-title>
     <mat-card-content fxLayoutAlign="center">
       <mat-form-field>
-        <mat-label>Book Genre</mat-label>
+        <mat-label>Book Title</mat-label>
         <mat-select>
-          <mat-option *ngFor="let gen of bookGenres" [value]="gen">
-            {{gen}}
+          <mat-option *ngFor="let book of avalableBooks" [value]="book.id">
+            {{book.title}}
           </mat-option>
         </mat-select>
       </mat-form-field>

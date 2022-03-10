@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
@@ -24,6 +25,7 @@ import { LoginComponent } from 'src/app/auth/login/login.component';
     BrowserModule, 
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     AngularMaterialModule,
     AspirationModule, 

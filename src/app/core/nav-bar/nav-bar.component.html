@@ -5,25 +5,25 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/signup">
+      <a mat-list-item routerLink="/signup" *ngIf="!isAuthenticated">
         <mat-icon>face</mat-icon>
         <span class="link-name">Signup</span>
       </a>
-      <a mat-list-item routerLink="/login">
+      <a mat-list-item routerLink="/login" *ngIf="!isAuthenticated">
         <mat-icon>person</mat-icon>
         <span class="link-name">login</span>
       </a>
-      <a mat-list-item routerLink="/books">
+      <a mat-list-item routerLink="/books" *ngIf="isAuthenticated">
         <mat-icon>library_books</mat-icon>
         <span class="link-name">Books</span>
       </a>
-      <a mat-list-item routerLink="/currentBook">
+      <a mat-list-item routerLink="/currentBook" *ngIf="isAuthenticated">
         <mat-icon>book</mat-icon>
         <span class="link-name">Current Book</span>
       </a>
       <a mat-list-item href="#">Link 2</a>
       <mat-list-item>
-        <button mat-icon-button class="logout">
+        <button mat-icon-button class="logout" *ngIf="isAuthenticated" (click)="onLogout()">
           <mat-icon>eject</mat-icon>
           <span class="link-name">Logout</span>
         </button>
@@ -42,11 +42,11 @@
       </button>
       <a  routerLink='/'><span>organzer</span></a>
       <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs fxLayoutGap="10px">
-        <a routerLink="/book">Current Book</a>
-          <a routerLink="/login">login</a>
-          <a routerLink="/signup">Signup</a>
-          <a>Logout</a>
-        </div>
+        <a routerLink="/book" *ngIf="isAuthenticated">Current Book</a>
+        <a routerLink="/login" *ngIf="!isAuthenticated" >login</a>
+        <a routerLink="/signup" *ngIf="!isAuthenticated">Signup</a>
+        <a *ngIf="isAuthenticated" (click)="onLogout()" style="cursor: pointer;">Logout</a>
+      </div>
     </mat-toolbar>
     <!-- Add Content Here -->
     <main>

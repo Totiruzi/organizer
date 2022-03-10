@@ -11,10 +11,12 @@ import { NewBookComponent } from './books/new-book/new-book.component';
 import { CurrentBookComponent } from './books/current-book/current-book.component';
 import { ReadBooksComponent } from './books/read-books/read-books.component';
 import { StopReadingComponent } from './books/current-book/stop-reading.component';
+import { BookService } from './books/book.service';
 
 @NgModule({
   declarations: [BooksComponent, BookListComponent, NewBookComponent, CurrentBookComponent, ReadBooksComponent, StopReadingComponent],
   imports: [CommonModule, RouterModule, FormsModule, AspirationRoutingModule, AngularMaterialModule],
   exports: [BooksComponent],
+  providers: [BookService],
 })
 export class AspirationModule {}
