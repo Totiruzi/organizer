@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'books', loadChildren: () => import('src/app/aspiration/aspiration.module')
+  { path: 'books', loadChildren: () => import('./aspiration/aspiration.module')
   .then(m => m.AspirationModule)},
 ]
 

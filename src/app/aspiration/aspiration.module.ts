@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router';
 import { AspirationRoutingModule } from './aspiration-routing.module'
-import { AngularMaterialModule } from 'src/app/angular-material/angular-material.module';
+import { AngularMaterialModule } from '../angular-material/angular-material.module';
 
 import { BookListComponent } from './books/book-list/book-list.component';
 import { BooksComponent } from './books/books.component'

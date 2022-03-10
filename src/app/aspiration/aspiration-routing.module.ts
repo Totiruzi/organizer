@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { BooksComponent } from 'src/app/aspiration/books/books.component';
-import { BookListComponent } from 'src/app/aspiration/books/book-list/book-list.component';
-import { CurrentBookComponent } from 'src/app/aspiration/books/current-book/current-book.component';
-import { NewBookComponent } from 'src/app/aspiration/books/new-book/new-book.component';
+import { BooksComponent } from '../aspiration/books/books.component';
+import { BookListComponent } from '../aspiration/books/book-list/book-list.component';
+import { CurrentBookComponent } from '../aspiration/books/current-book/current-book.component';
+import { NewBookComponent } from '../aspiration/books/new-book/new-book.component';
 import { AuthGuard } from '../auth/auth.gaurd';
 
 const routes: Routes = [

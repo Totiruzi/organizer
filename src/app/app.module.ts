@@ -6,13 +6,13 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AngularMaterialModule } from './angular-material/angular-material.module';
-import { AppRoutingModule } from 'src/app/app-routing.module';
-import { AspirationModule } from 'src/app/aspiration/aspiration.module';
-import { AppComponent } from 'src/app/app.component';
-import { HomeComponent } from 'src/app/home/home.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AspirationModule } from './aspiration/aspiration.module';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 import { CoreModule } from './core/core.module';
-import { SignupComponent } from 'src/app/auth/signup/signup.component';
-import { LoginComponent } from 'src/app/auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
