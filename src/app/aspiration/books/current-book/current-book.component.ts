@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { BookService } from '../book.service';
 import { StopReadingComponent } from './stop-reading.component';
 
 @Component({
@@ -11,7 +12,7 @@ export class CurrentBookComponent implements OnInit {
   @Output() exitReading = new EventEmitter<void>();
   currentProgress = 0;
   timer: any;
-  constructor(public matDialog: MatDialog) { }
+  constructor(public matDialog: MatDialog, private bookService: BookService) { }
 
   openDialog() {
     const dialogRef = this.matDialog.open(StopReadingComponent, {
@@ -21,7 +22,7 @@ export class CurrentBookComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result=> {
       console.log(result);
       if (result) {
-        this.exitReading.emit();
+        this.bookService.readingCanceled();
       } else {
         this.startOrResumeReading();
       }
@@ -33,12 +34,15 @@ export class CurrentBookComponent implements OnInit {
   }
 
   startOrResumeReading() {
+    // readingTime takes the duration of the the time to read the book into account
+    const readingTime = this.bookService.getCurrentReadingBook().pageNumber/100 * 1000;
     this.timer = setInterval(() => {
-      this.currentProgress += 5;
+      this.currentProgress += 1;
       if (this.currentProgress >= 100) {
+        this.bookService.readingComplete();
         clearInterval(this.timer);
       }
-    }, 1000);
+    }, readingTime);
   }
 
   stopReading() {

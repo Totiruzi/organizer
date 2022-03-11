@@ -1,11 +1,12 @@
 import { Injectable } from "@angular/core";
-import { IBook } from "./book.modle";
+import { IBook } from "./book.model";
 
 import { Subject } from "rxjs";
 
 @Injectable()
 export class BookService {
-  choosenBook = new Subject<IBook>();
+  choosenBook = new Subject<IBook | null>();
+  bookState: IBook[] = [];
   private avalableBooks: IBook[] = [
     { 
       id: "1", 
@@ -33,7 +34,7 @@ export class BookService {
     },
     {
       id: "3",
-      title: "Software Engineering",
+      title: "Compillers and Software Engineering",
       author: "Robert C. Martin",
       genre: "programming",
       description: "The art of understanding how with a mind of its own, we can create software that solves real-world problems. This book is a comprehensive guide to software engineering, covering the theory, tools, and practices of the field. It is a guide for software engineers, software architects, and software developers. It is a guide for software developers, software testers, and software engineers.",
@@ -57,15 +58,48 @@ export class BookService {
     },
   ]
 
-  private currentBook:any;
+  private currentReadingBook:any;
 
   getAvailableBooks(): IBook[] {
     return this.avalableBooks;
   }
 
   startReading(selectedBookId: string) {
-    this.currentBook = this.avalableBooks.find(book => book.id === selectedBookId);
-    this.choosenBook.next({ ...this.currentBook });
+    this.currentReadingBook = this.avalableBooks.find(book => book.id === selectedBookId);
+    this.choosenBook.next({ ...this.currentReadingBook });
   }
 
+  getCurrentReadingBook() {
+    return { ...this.currentReadingBook };
+  }
+
+  readingComplete() {
+    this.bookState.push({ ...this.currentReadingBook, state: "complete", endDate: new Date() });
+    this.currentReadingBook = null;
+    this.choosenBook.next(null);
+  }
+
+  readingCanceled() {
+    this.bookState.push({ 
+      ...this.currentReadingBook, 
+      state: "cancelled", 
+      endDate: new Date(),
+      spentTime: this.calculateSpentTime(this.currentReadingBook.startDate, new Date()),
+      progressMade: this.currentProgress(this.currentReadingBook.pageNumber, this.currentReadingBook.pageNumber)
+    });
+    this.currentReadingBook = null;
+    this.choosenBook.next(null);
+  }
+
+  calculateSpentTime(startDate: Date, endDate: Date) {
+    const timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
+    const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+    return diffDays;
+  }
+
+  currentProgress(pageNumber: number, currentPageNumber: number) {
+    this.currentReadingBook.currentPageNumber = currentPageNumber;
+    this.currentReadingBook.pageNumber = pageNumber;
+    this.currentReadingBook.progressMade = this.currentReadingBook.pageNumber - this.currentReadingBook.currentPageNumber/this.currentReadingBook.pageNumber * 100;
+  }
 }

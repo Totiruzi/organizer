@@ -1,6 +1,6 @@
 import { NgForm } from '@angular/forms';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { IBook } from '../book.modle';
+import { Component, OnInit } from '@angular/core';
+import { IBook } from '../book.model';
 import { BookService } from '../book.service';
 @Component({
   selector: 'app-new-book',
@@ -10,8 +10,6 @@ import { BookService } from '../book.service';
 export class NewBookComponent implements OnInit {
   avalableBooks: IBook[] = [];
   // bookGenres = ["Psychology", "Programming", "Family", "Finance", "Science", "Fiction", "Other"];
-
-  @Output() genreValue = new EventEmitter<void>()
 
   constructor( private bookService: BookService) { }
 
