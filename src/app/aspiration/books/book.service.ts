@@ -56,6 +56,18 @@ export class BookService {
       state: "inProgress",
       takeaway: "Parenting is a skill that can be taught to children. It is a skill that can be taught to adults. It is a skill that can be taught to anyone. This book is a comprehensive guide to parenting, covering the theory, tools, and practices of the field. It is a guide for parents, teachers, and anyone who wants to learn how to parent."
     },
+    {
+      id: "5",
+      title: "State Machine",
+      author: "Robert C. Martin",
+      genre: "programming",
+      description: "State machines are a powerful tool for modeling the behavior of a system. This book is a comprehensive guide to state machines, covering the theory, tools, and practices of the field. It is a guide for software engineers, software architects, and software developers. It is a guide for software developers, software testers, and software engineers.",
+      image: "assets/images/state-machine.jpg",
+      pageNumber: 956,
+      startDate: new Date(2017, 1, 1),
+      state: "inProgress",
+      takeaway: "State machines are a powerful tool for modeling the behavior of a system. This book is a comprehensive guide to state machines, covering the theory, tools, and practices of the field. It is a guide for software engineers, software architects, and software developers. It is a guide for software developers, software testers, and software engineers."
+    }
   ]
 
   private currentReadingBook:any;
