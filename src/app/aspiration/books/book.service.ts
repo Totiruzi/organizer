@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
-import { IBook } from "./book.module";
+import { IBook } from "./book.modle";
 
 import { Subject } from "rxjs";
 
 @Injectable()
 export class BookService {
-  choosenBook = new Subject<IBook | undefined>();
+  choosenBook = new Subject<IBook>();
   private avalableBooks: IBook[] = [
     { 
       id: "1", 

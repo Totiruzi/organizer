@@ -1,6 +1,6 @@
 import { NgForm } from '@angular/forms';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { IBook } from '../book.module';
+import { IBook } from '../book.modle';
 import { BookService } from '../book.service';
 @Component({
   selector: 'app-new-book',
