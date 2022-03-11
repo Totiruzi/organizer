@@ -4,7 +4,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-stop-reading',
   template: `
-    <h1 mat-dialog-title>Are you sure you want to consel reading</h1>
+    <h1 mat-dialog-title>Are you sure you want to cancel reading</h1>
     <mat-dialog-content>
       <p>You have {{passedData.progress}}% in progress!</p>
     </mat-dialog-content>
