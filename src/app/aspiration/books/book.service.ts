@@ -6,7 +6,6 @@ import { Subject } from "rxjs";
 @Injectable()
 export class BookService {
   choosenBook = new Subject<IBook | null>();
-  bookState: IBook[] = [];
   private avalableBooks: IBook[] = [
     { 
       id: "1", 
@@ -71,6 +70,7 @@ export class BookService {
   ]
 
   private currentReadingBook:any;
+  private bookState: IBook[] = [];
 
   getAvailableBooks(): IBook[] {
     return this.avalableBooks;
@@ -113,5 +113,9 @@ export class BookService {
     this.currentReadingBook.currentPageNumber = currentPageNumber;
     this.currentReadingBook.pageNumber = pageNumber;
     this.currentReadingBook.progressMade = this.currentReadingBook.pageNumber - this.currentReadingBook.currentPageNumber/this.currentReadingBook.pageNumber * 100;
+  }
+
+  getCompletedOrCancelledBookState() {
+    return this.bookState.slice();
   }
 }

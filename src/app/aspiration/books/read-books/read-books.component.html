@@ -1,36 +1,47 @@
-<mat-table [dataSource]="bookSource">
+<table mat-table [dataSource]="dataBookSource">
   <ng-container matColumnDefination="author">
     <mat-header-cell *matHeaderCellDef> Author </mat-header-cell>
     <mat-cell *matCellDef="let book"> {{book.author}} </mat-cell>
   </ng-container>
+
   <ng-container matColumnDefination="title">
     <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
     <mat-cell *matCellDef="let book"> {{book.title}} </mat-cell>
   </ng-container>
+
   <ng-container matColumnDefination="genre">
     <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
     <mat-cell *matCellDef="let book"> {{book.genre}} </mat-cell>
   </ng-container>
-  <ng-container matColumnDefination="endDate">
+
+  <ng-container matColumnDefination="state">
+    <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
+    <mat-cell *matCellDef="let book"> {{book.state}} </mat-cell>
+  </ng-container>
+
+  <!-- <ng-container matColumnDefination="endDate">
     <mat-header-cell *matHeaderCellDef> Concluded </mat-header-cell>
     <mat-cell *matCellDef="let book"> {{book.endDate | date}} </mat-cell>
-  </ng-container>
-  <ng-container matColumnDefination="spentTime">
+  </ng-container> -->
+
+  <!-- <ng-container matColumnDefination="spentTime">
     <mat-header-cell *matHeaderCellDef> Spent time </mat-header-cell>
-    <mat-cell *matCellDef="let book"> {{book.spentTime}} </mat-cell>
-  </ng-container>
+    <mat-cell *matCellDef="let book"> {{book.spentTime | number}} </mat-cell>
+  </ng-container> -->
+
   <ng-container matColumnDefination="takeaway">
     <mat-header-cell *matHeaderCellDef> Thoughts </mat-header-cell>
     <mat-cell *matCellDef="let book"> {{book.takeaway}} </mat-cell>
   </ng-container>
-  <ng-container matColumnDefination="actions">
+
+  <!-- <ng-container matColumnDefination="actions">
     <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
     <mat-cell *matCellDef="let book">
       <button mat-button (click)="editBook(book)"> Edit </button>
       <button mat-button (click)="deleteBook(book)"> Delete </button>
     </mat-cell>
-  </ng-container>
+  </ng-container> -->
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</mat-table>
+  <tr mat-header-row *matHeaderRowDef="displayedBookColumns"></tr> 
+  <tr mat-row *matRowDef="let row; columns: displayedBookColumns;"></tr>
+</table> 

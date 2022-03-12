@@ -6,6 +6,7 @@ import { BookListComponent } from '../aspiration/books/book-list/book-list.compo
 import { CurrentBookComponent } from '../aspiration/books/current-book/current-book.component';
 import { NewBookComponent } from '../aspiration/books/new-book/new-book.component';
 import { AuthGuard } from '../auth/auth.gaurd';
+import { ReadBooksComponent } from './books/read-books/read-books.component';
 
 const routes: Routes = [
   { path: '', component: BooksComponent },
