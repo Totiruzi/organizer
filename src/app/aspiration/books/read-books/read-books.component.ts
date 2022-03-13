@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { IBook } from '../book.model';
@@ -14,6 +15,7 @@ export class ReadBooksComponent implements OnInit, AfterViewInit {
   dataBookSource =  new MatTableDataSource<IBook | null>();
 
   @ViewChild(MatSort , {static: true}) sort!: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator!: MatPaginator;
 
   constructor(private bookService: BookService) { }
 
@@ -23,6 +25,11 @@ export class ReadBooksComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.dataBookSource.sort = this.sort;
+    this.dataBookSource.paginator = this.paginator;
+  }
+
+  filterReadBooks(filterValue: any) {
+    this.dataBookSource.filter = filterValue.target.value.trim().toLowerCase();
   }
 
 }
