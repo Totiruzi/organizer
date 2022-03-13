@@ -1,31 +1,31 @@
-<mat-table [dataSource]="dataBookSource">
+<mat-table [dataSource]="dataBookSource" matSort>
   <ng-container matColumnDef="author">
-    <mat-header-cell *matHeaderCellDef> Author</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Author</mat-header-cell>
     <mat-cell *matCellDef="let book">{{ book.author }}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="title">
-    <mat-header-cell *matHeaderCellDef> Title</mat-header-cell>
+  <ng-container matColumnDef="title" >
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Title</mat-header-cell>
     <mat-cell *matCellDef="let book">{{ book.title }}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="genre">
-    <mat-header-cell *matHeaderCellDef> Category</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Category</mat-header-cell>
     <mat-cell *matCellDef="let book">{{ book.genre }}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="state">
-    <mat-header-cell *matHeaderCellDef> State </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header> State </mat-header-cell>
     <mat-cell *matCellDef="let book">{{book.state}}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="endDate">
-    <mat-header-cell *matHeaderCellDef> Concluded </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Concluded </mat-header-cell>
     <mat-cell *matCellDef="let book">{{book.endDate}}</mat-cell>
   </ng-container>
 
   <ngg-container matColumnDef="spentTime">
-    <mat-header-cell *matHeaderCellDef>Time spent</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Time spent</mat-header-cell>
     <mat-cell *matCellDef="let book">{{book.spentTime}}</mat-cell>
   </ngg-container>
 
