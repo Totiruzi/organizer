@@ -10,7 +10,7 @@ import { BookService } from '../book.service';
 })
 export class ReadBooksComponent implements OnInit {
   displayedBookColumns = ['author','title',  'genre', 'state', 'endDate', 'spentTime', 'takeaway'];
-  dataBookSource = new MatTableDataSource<IBook>();
+  dataBookSource =  new MatTableDataSource<IBook | null>();
 
   constructor(private bookService: BookService) { }
 
