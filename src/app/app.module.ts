@@ -1,10 +1,13 @@
-import { StopReadingComponent } from './aspiration/books/current-book/stop-reading.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../environments/environment'
+
+import { StopReadingComponent } from './aspiration/books/current-book/stop-reading.component';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AspirationModule } from './aspiration/aspiration.module';
@@ -29,7 +32,8 @@ import { LoginComponent } from './auth/login/login.component';
     AppRoutingModule,
     AngularMaterialModule,
     AspirationModule, 
-    CoreModule
+    CoreModule,
+    AngularFireModule.initializeApp({environment.firebase})
   ],
   providers: [],
   bootstrap: [AppComponent],

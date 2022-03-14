@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ngorganizer-40722": {
+      "hosting": {
+        "organzer": [
+          "ngorganizer-40722"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ngorganizer-40722"
+  }
+}
